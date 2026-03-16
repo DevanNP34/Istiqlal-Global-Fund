@@ -1,0 +1,315 @@
+body {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero{
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../images/majoris-asset-management-dan-istiqlal-global-fund-luncurkan-wakaf-saham-istiqlal-lwo.png") center/cover no-repeat;
+    color:white;
+    padding:120px 0;
+}
+
+.dark-blue{
+    background:#0c1b2e;
+}
+
+.gold-font{
+    color: #e0b15c;
+}
+
+.blue-font{
+    color: #233a5e;
+}
+
+.section-blue{
+    background:#233a5e;
+    color:white;
+}
+
+.section-light{
+    background:#f7f7f7;
+}
+
+.card-news img{
+    height:150px;
+    object-fit:cover;
+}
+
+.footer{
+    color:white;
+    padding:40px 0;
+}
+
+.btn-gold{
+    background:#e0b15c;
+    color:white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #0b1d3a; 
+    padding: 20px;
+    border-radius: 40%;
+    height: 100%;
+}
+
+
+
+.nav-pills .nav-link{
+border:2px solid #2d4f73;
+color:#000;
+background:white;
+margin-right:8px;
+}
+
+.nav-pills .nav-link.active{
+background:#2d4f73;
+color:white;
+border-color:#2d4f73;
+}
+
+.logo-card{
+position:relative;
+background:white;
+border:1px solid #ddd;
+aspect-ratio:1/1;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+cursor:pointer;
+}
+
+.logo-card img{
+max-width:70%;
+transition:transform 0.3s ease;
+}
+
+.logo-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.4);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:0.3s;
+text-align:center;
+padding:10px;
+font-weight:600;
+}
+
+.logo-card:hover img{
+transform:scale(1.1);
+}
+
+.logo-card:hover .logo-overlay{
+opacity:1;
+}
+
+
+
+.news-section{
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+}
+
+.news-section h2{
+font-size:28px;
+color:#355070;
+margin-bottom:20px;
+}
+
+.search-wrapper{
+display:flex;
+width:100%;
+margin-bottom:30px;
+}
+
+.search-bar{
+flex:1;
+padding:10px 14px;
+border:1px solid #ccc;
+border-right:none;
+border-radius:6px 0 0 6px;
+outline:none;
+}
+
+.search-button{
+width:50px;
+border:1px solid #ccc;
+border-left:none;
+background:#f5f5f5;
+cursor:pointer;
+border-radius:0 6px 6px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+}
+
+.search-button:hover{
+background:#e8e8e8;
+}
+
+.news-card{
+display:flex;
+gap:20px;
+background:#f5f5f5;
+border-radius:20px;
+padding:15px;
+margin-bottom:25px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+text-decoration:none;
+color:inherit;
+
+transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover{
+transform:scale(1.03);
+box-shadow:0 12px 25px rgba(0,0,0,0.18);
+}
+
+.news-card img{
+width:160px;
+height:100px;
+object-fit:cover;
+border-radius:15px;
+transition:transform 0.3s ease;
+}
+
+.news-card:hover img{
+transform:scale(1.05);
+}
+
+.news-content h3{
+font-size:16px;
+margin:5px 0;
+}
+
+.news-date{
+font-size:12px;
+color:#777;
+}
+
+.news-content p{
+font-size:13px;
+color:#444;
+}
+
+.results-info{
+margin-top:30px;
+margin-bottom:10px;
+color:#555;
+}
+
+.pagination{
+display:flex;
+justify-content:center;
+gap:10px;
+align-items:center;
+margin-top:10px;
+}
+
+.page-btn{
+width:36px;
+height:36px;
+border-radius:50%;
+border:1px solid #aaa;
+background:white;
+cursor:pointer;
+}
+
+.page-btn.active{
+background:#3d5a80;
+color:white;
+border:none;
+}
+
+.page-btn:hover{
+background:#3d5a80;
+color:white;
+}
+
+.ellipsis{
+padding:0 6px;
+}
+
+
+
+.business-section{
+background:#efefef;
+padding:80px 0;
+display:flex;
+justify-content:center;
+}
+
+.business-container{
+display:flex;
+gap:40px;
+max-width:1100px;
+width:100%;
+justify-content:center;
+}
+
+.business-card{
+position:relative;
+width:280px;
+height:380px;
+border-radius:30px;
+overflow:hidden;
+text-decoration:none;
+transition:transform 0.35s ease;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.business-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:grayscale(100%) brightness(70%);
+transition:filter 0.35s ease, transform 0.35s ease;
+}
+
+.business-card:hover{
+transform:scale(1.08);
+}
+
+.business-card:hover img{
+filter:grayscale(0%) brightness(85%);
+transform:scale(1.05);
+}
+
+.card-overlay{
+position:absolute;
+bottom:30px;
+left:25px;
+color:white;
+font-size:28px;
+font-weight:600;
+line-height:1.2;
+}
+
+.placeholder{
+width:100%;
+height:100%;
+background:#cfcfcf;
+display:flex;
+align-items:flex-end;
+padding:30px;
+color:white;
+font-size:28px;
+font-weight:600;
+line-height:1.2;
+border-radius:30px;
+transition:transform 0.35s ease;
+}
+
+.business-card:hover .placeholder{
+transform:scale(1.05);
+}
