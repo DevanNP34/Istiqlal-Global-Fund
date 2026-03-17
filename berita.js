@@ -1,3 +1,6 @@
+let newsData = [];
+let filteredNews = [];
+
 const perPage = 5;
 let currentPage = 1;
 
@@ -13,14 +16,14 @@ list.innerHTML="";
 
 visible.forEach(n=>{
 list.innerHTML += `
-<a href="news-page.html" class="news-card">
+<a href="${n.link}" class="news-card">
 
 <img src="${n.image}">
 
 <div class="news-content">
 <div class="news-date">${n.date}</div>
 <h3>${n.title}</h3>
-<p>${n.desc}</p>
+<p>${n.desc.substring(0,120)}...</p>
 </div>
 
 </a>
@@ -112,8 +115,6 @@ return span;
 
 }
 
-let filteredNews = [...newsData];
-
 function runSearch(){
 
 const input = document.getElementById("searchBar");
@@ -152,6 +153,32 @@ runSearch();
 
 document.getElementById("searchBtn").addEventListener("click", runSearch);
 
+async function loadNews(){
 
+const url = "https://docs.google.com/spreadsheets/d/1RNg5o1tHEuq9vSTYMXjt5PMJX1CQbf_cB3-ertatAsI/gviz/tq?tqx=out:json";
 
+const res = await fetch(url);
+const text = await res.text();
+
+const json = JSON.parse(text.substring(47).slice(0,-2));
+
+const rows = json.table.rows;
+
+newsData = rows.map(r => ({
+title: r.c[0]?.v || "",
+desc: r.c[1]?.v || "",
+image: r.c[2]?.v || "",
+date: r.c[3]?.f || "",
+link: r.c[4]?.v || ""
+}));
+
+newsData.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+filteredNews = [...newsData];
+
+console.log(newsData);
 renderNews();
+
+}
+
+loadNews();
