@@ -13,7 +13,8 @@ title: r.c[0]?.v || "",
 image: r.c[2]?.v || "",
 date: r.c[3]?.f || "",
 link: r.c[4]?.v || ""
-}));
+}))
+.filter(n => n.title && n.image && n.link);;
 
 news.sort((a,b)=> new Date(b.date) - new Date(a.date));
 

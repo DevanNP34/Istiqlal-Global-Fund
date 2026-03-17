@@ -23,7 +23,7 @@ list.innerHTML += `
 <div class="news-content">
 <div class="news-date">${n.date}</div>
 <h3>${n.title}</h3>
-<p>${n.desc.substring(0,120)}...</p>
+<p>${n.desc.substring(0,200)}...</p>
 </div>
 
 </a>
@@ -40,7 +40,7 @@ const start = (currentPage-1)*perPage+1;
 const end = Math.min(currentPage*perPage,filteredNews.length);
 
 document.getElementById("resultsInfo").innerText =
-`Showing ${start}-${end} Of ${filteredNews.length} Results`;
+`Menunjukkan ${start}-${end} dari ${filteredNews.length} hasil`;
 
 }
 
@@ -170,7 +170,8 @@ desc: r.c[1]?.v || "",
 image: r.c[2]?.v || "",
 date: r.c[3]?.f || "",
 link: r.c[4]?.v || ""
-}));
+}))
+.filter(n => n.title && n.image && n.link);;
 
 newsData.sort((a,b) => new Date(b.date) - new Date(a.date));
 

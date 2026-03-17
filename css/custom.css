@@ -41,17 +41,32 @@ body {
     padding:40px 0;
 }
 
+.sosmed:hover{
+    color: #c19b2e;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
 .btn-gold{
     background:#e0b15c;
     color:white;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+    width: 80px;
+    background: #d4af37;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: #c19b2e;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #0b1d3a; 
-    padding: 20px;
-    border-radius: 40%;
-    height: 100%;
+    background-size: 40px 40px;
 }
 
 #latest-news{
@@ -136,6 +151,7 @@ transition:0.3s;
 text-align:center;
 padding:10px;
 font-weight:600;
+font-size:medium;
 }
 
 .logo-card:hover img{

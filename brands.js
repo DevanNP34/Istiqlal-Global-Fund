@@ -9,10 +9,11 @@ const json = JSON.parse(text.substring(47).slice(0,-2));
 const rows = json.table.rows;
 
 const brands = rows.map(r => ({
-category: r.c[0]?.v || "",
-name: r.c[1]?.v || "",
-logo: r.c[2]?.v || ""
-}));
+category: r.c[9]?.v || "",
+name: r.c[10]?.v || "",
+logo: r.c[11]?.v || ""
+}))
+.filter(n => n.category && n.name && n.logo);;
 
 renderBrands(brands);
 
