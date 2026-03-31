@@ -64,7 +64,7 @@
     <!-- HERO -->
     <section class="page-header section-blue py-5">
         <div class="container text-center">
-            <h1 class="fw-bold gold-font">Kegiatan Bisnis Berjalan</h1>
+            <h1 class="fw-bold gold-font">Kegiatan IGF</h1>
             <p>Program dan kegiatan Istiqlal Global Fund</p>
         </div>
     </section>
@@ -73,182 +73,25 @@
     <section class="py-5 section-light">
         <div class="container">
 
-            <div class="row g-4">
+            <div class="row g-4" id="events-container"></div>
 
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/parking.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Parking Management</h5>
-                            <p>Festival Ramadhan dan bazaar UMKM</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/foodncraft.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Food & Craft</h5>
-                            <p>Forum bisnis dan kolaborasi</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/mart.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Mart</h5>
-                            <p>Pertemuan mitra dan investor</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row g-4">
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/restoncafe.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Resto & Cafe</h5>
-                            <p>Festival Ramadhan dan bazaar UMKM</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/digitalsignage.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Digital Signage</h5>
-                            <p>Forum bisnis dan kolaborasi</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/gallery.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Gallery</h5>
-                            <p>Pertemuan mitra dan investor</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row g-4">
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/vendingmachine.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Vending Machine</h5>
-                            <p>Festival Ramadhan dan bazaar UMKM</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/atmcenter.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF ATM Center</h5>
-                            <p>Forum bisnis dan kolaborasi</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/laundry.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Laundry</h5>
-                            <p>Pertemuan mitra dan investor</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row g-4">
-
-                <!-- Event Card -->
-                <div class="col-md-4">
-                    <div class="event-card">
-                        <img src="../images/kegiatan/berjalan/massagechair.png">
-
-                        <div class="event-overlay">
-                            <h5>IGF Massage Chair</h5>
-                            <p>Festival Ramadhan dan bazaar UMKM</p>
-
-                            <a href="#" class="btn btn-sm btn-gold">
-                                Detil Kegiatan
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
 
+    <!-- Event Modal -->
+    <div id="eventModal" class="event-modal">
+        <div class="event-modal-content">
+
+            <button class="event-close">&times;</button>
+
+            <img id="modal-photo">
+
+            <h3 id="modal-event"></h3>
+
+            <p id="modal-description"></p>
+
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer dark-blue">
@@ -303,6 +146,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./kegiatan-igf.js"></script>
 
 </body>
 </html>
