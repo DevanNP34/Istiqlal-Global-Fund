@@ -1,6 +1,10 @@
 body {
-    font-size: 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 20px;
     line-height: 1.8;
+    line-height: 2.4rem;
 }
 
 .hero{
@@ -8,6 +12,7 @@ body {
     url("../images/majoris-asset-management-dan-istiqlal-global-fund-luncurkan-wakaf-saham-istiqlal-lwo.png") center/cover no-repeat;
     color:white;
     padding:120px 0;
+    height: 50rem;
 }
 
 .dark-blue{
@@ -31,9 +36,24 @@ body {
     background:#f7f7f7;
 }
 
+.section-blue,
+.section-light {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+}
+
 .card-news img{
     height:150px;
     object-fit:cover;
+}
+
+.card-event img{
+    height:500px;
+    width: 800px;
+    object-fit: cover;
 }
 
 .footer{
@@ -49,6 +69,23 @@ body {
 .btn-gold{
     background:#e0b15c;
     color:white;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+.section-blue,
+.section-light {
+    overflow: hidden;
+}
+
+.big-section{
+    height:45rem;
 }
 
 .carousel-control-prev,
@@ -162,6 +199,50 @@ transform:scale(1.1);
 opacity:1;
 }
 
+
+.event-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.event-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: 0.4s;
+    filter:grayscale(100%) brightness(70%);
+    transition:filter 0.35s ease, transform 0.35s ease;
+}
+
+.event-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(
+        transparent,
+        rgba(35,58,94,1)
+    );
+    color: white;
+}
+
+.event-overlay h5 {
+    color: #e0b15c;
+    font-weight: 600;
+}
+
+.event-card:hover img {
+    filter:grayscale(0%) brightness(85%);
+    transform: scale(1.05);
+}
+
+.event-card:hover .event-overlay {
+    background: linear-gradient(
+        transparent,
+        rgba(35,58,94,1)
+    );
+}
 
 
 .news-section{
