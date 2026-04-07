@@ -15,8 +15,9 @@ const kegiatanData = rows.map(r => ({
 type: r.c[16]?.v || "",
 event: r.c[17]?.v || "",
 short: r.c[18]?.v || "",
-long: r.c[19]?.v || "",
-photo: r.c[20]?.v || ""
+long: r.c[19]?.v || r.c[19]?.f || "",
+photo: r.c[20]?.v || "",
+gallery: r.c[21]?.v || r.c[21]?.f || ""
 
 }))
 .filter(k => k.type && k.event && k.short);
