@@ -1,42 +1,42 @@
 async function loadLatestNews(){
 
-const url = "https://docs.google.com/spreadsheets/d/1RNg5o1tHEuq9vSTYMXjt5PMJX1CQbf_cB3-ertatAsI/gviz/tq?tqx=out:json";
+    const url = "https://docs.google.com/spreadsheets/d/1RNg5o1tHEuq9vSTYMXjt5PMJX1CQbf_cB3-ertatAsI/gviz/tq?tqx=out:json";
 
-const res = await fetch(url);
-const text = await res.text();
+    const res = await fetch(url);
+    const text = await res.text();
 
-const json = JSON.parse(text.substring(47).slice(0,-2));
-const rows = json.table.rows;
+    const json = JSON.parse(text.substring(47).slice(0,-2));
+    const rows = json.table.rows;
 
-let news = rows.map(r => ({
-title: r.c[0]?.v || "",
-image: r.c[2]?.v || "",
-date: r.c[3]?.f || "",
-link: r.c[4]?.v || ""
-}))
-.filter(n => n.title && n.image && n.link);;
+    let news = rows.map(r => ({
+        title: r.c[0]?.v || "",
+        image: r.c[2]?.v || "",
+        date: r.c[3]?.f || "",
+        link: r.c[4]?.v || ""
+    }))
+    .filter(n => n.title && n.image && n.link);;
 
-news.sort((a,b)=> new Date(b.date) - new Date(a.date));
+    news.sort((a,b)=> new Date(b.date) - new Date(a.date));
 
-news = news.slice(0,3);
+    news = news.slice(0,3);
 
-const container = document.getElementById("latest-news");
+    const container = document.getElementById("latest-news");
 
-news.forEach(n => {
+    news.forEach(n => {
 
-container.innerHTML += `
-<a href="${n.link}" class="latest-news-item">
+        container.innerHTML += `
+        <a href="${n.link}" class="latest-news-item">
 
-<img src="${n.image}">
+        <img src="${n.image}">
 
-<div class="latest-news-date">${n.date}</div>
+        <div class="latest-news-date">${n.date}</div>
 
-<div class="latest-news-title">${n.title}</div>
+        <div class="latest-news-title">${n.title}</div>
 
-</a>
-`;
+        </a>
+        `;
 
-});
+    });
 
 }
 
