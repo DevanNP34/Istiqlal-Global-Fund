@@ -13,7 +13,7 @@ async function loadBrands(){
         name: r.c[10]?.v || "",
         logo: r.c[11]?.v || ""
     }))
-    .filter(n => n.category && n.name && n.logo);;
+    .filter(n => n.category && n.name);;
 
     renderBrands(brands);
 

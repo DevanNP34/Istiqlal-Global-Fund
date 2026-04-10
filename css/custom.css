@@ -12,7 +12,8 @@ body {
     height: 50rem;
     overflow: hidden;
     color: #ffffff;
-    background-color: #0c1f2e;
+    background: linear-gradient(#3f5f87, #0c1f2e);
+    
 }
 
 .hero-video {
