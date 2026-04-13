@@ -14,16 +14,15 @@ fetch(sheetURL)
 
             type: r.c[16]?.v || "",
             event: r.c[17]?.v || "",
-            short: r.c[18]?.v || "",
-            long: r.c[19]?.v || r.c[19]?.f || "",
+            desc: r.c[18]?.v || r.c[19]?.f || "",
 
-            photos: (r.c[20]?.v || r.c[20]?.f || "")
+            photos: (r.c[19]?.v || r.c[20]?.f || "")
                 .split("\n")
                 .map(p => p.trim())
                 .filter(p => p !== "")
 
         }))
-        .filter(k => k.type && k.event && k.short);
+        .filter(k => k.type && k.event && k.desc);
 
         renderKegiatan(kegiatanData);
 
@@ -55,13 +54,11 @@ function renderKegiatan(data) {
 
                         <h5>${item.event}</h5>
 
-                        <p>${item.short}</p>
-
                         <button 
                             class="btn btn-sm btn-gold event-detail"
                             data-event="${item.event}"
                             data-photos='${JSON.stringify(item.photos)}'
-                            data-long="${item.long.replace(/"/g, '&quot;')}"
+                            data-desc="${item.desc.replace(/"/g, '&quot;')}"
                         >
                             Detil Kegiatan
                         </button>
@@ -101,7 +98,7 @@ function setupModal() {
             updateImage();
 
             document.getElementById("modal-event").innerText = btn.dataset.event;
-            document.getElementById("modal-description").innerText = btn.dataset.long;
+            document.getElementById("modal-description").innerText = btn.dataset.desc;
 
             modal.classList.add("show");
 
@@ -145,9 +142,26 @@ function setupModal() {
 
 function updateImage() {
 
+    const prev = document.querySelector(".gallery-prev");
+    const next = document.querySelector(".gallery-next");
+
+    if (galleryImages.length <= 1) {
+        prev.style.display = "none";
+        next.style.display = "none";
+    } else {
+        prev.style.display = "block";
+        next.style.display = "block";
+    }
+
     if (!galleryImages.length) return;
 
     document.getElementById("modal-photo").src =
         galleryImages[currentIndex];
+
+    document.getElementById("gallery-current").innerText =
+        currentIndex + 1;
+
+    document.getElementById("gallery-total").innerText =
+        galleryImages.length;
 
 }

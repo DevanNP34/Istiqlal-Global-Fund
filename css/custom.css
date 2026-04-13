@@ -3,17 +3,64 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 20px;
-    line-height: 1.8;
     line-height: 2.4rem;
+}
+
+.navbar-top-bg {
+    height: 6rem;
+    background: #0c1f2e;
+}
+
+.floating-navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    background: transparent; 
+    pointer-events: none; 
+}
+
+.floating-navbar {
+    width: 100%;
+    pointer-events: auto; 
+}
+
+.floating-navbar-inner {
+    background: #0c1f2e;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    transition: 
+        max-width 0.45s cubic-bezier(0.4,0,0.2,1),
+        border-radius 0.45s ease,
+        box-shadow 0.45s ease,
+        padding 0.45s ease,
+        margin-top 0.45s ease;
+}
+
+.floating-navbar-wrapper.shrink {
+    top: 18px;
+    padding: 0 20px;
+}
+
+.floating-navbar.shrink .floating-navbar-inner {
+    max-width: 1200px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-top: 15px;
+    padding: 10px 0;
 }
 
 .hero {
     position: relative;
-    height: 50rem;
+    height: 80rem;
     overflow: hidden;
     color: #ffffff;
     background: linear-gradient(#3f5f87, #0c1f2e);
-    
+    line-height: 3rem;
 }
 
 .hero-video {
@@ -44,6 +91,14 @@ body {
     padding: 120px 0;
 }
 
+.hero-content h1{
+    font-size: 60px;
+}
+
+.hero-content p{
+    font-size: 24px;
+}
+
 .dark-blue{
     background:#0c1f2e;
 }
@@ -67,7 +122,7 @@ body {
 
 .section-blue,
 .section-light {
-    min-height: 600px;
+    min-height: 35rem;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -257,7 +312,7 @@ opacity:1;
 }
 
 .event-overlay h5 {
-    color: #e0b15c;
+    color: #ffffff;
     font-weight: 600;
 }
 
@@ -319,7 +374,7 @@ width: 6px;
 }
 
 #modal-description::-webkit-scrollbar-thumb {
-background: #c5a059;
+background: #ffffff;
 border-radius: 10px;
 }
 
@@ -402,6 +457,24 @@ left: 10px;
 
 .gallery-next {
 right: 10px;
+}
+
+.gallery-counter {
+position: absolute;
+bottom: 10px;
+left: 50%;
+transform: translateX(-50%);
+
+background: rgba(0,0,0,0.5);
+color: white;
+
+padding: 4px 10px;
+border-radius: 20px;
+
+font-size: 13px;
+font-weight: 500;
+
+z-index: 3;
 }
 
 @keyframes fadeIn {
@@ -564,8 +637,8 @@ justify-content:center;
 
 .business-card{
 position:relative;
-width:280px;
-height:380px;
+width:100rem;
+height:40rem;
 border-radius:30px;
 overflow:hidden;
 text-decoration:none;
