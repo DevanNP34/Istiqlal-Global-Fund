@@ -54,6 +54,18 @@ body {
     padding: 10px 0;
 }
 
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.left-logo {
+    margin-left: 20px;
+}
+
+.right-logo {
+    margin-right: 20px;
+}
+
 .hero {
     position: relative;
     height: 80rem;
@@ -168,8 +180,9 @@ body {
     overflow: hidden;
 }
 
-.big-section{
-    height:45rem;
+.big-section {
+    padding: 4rem 0;
+    height: auto;
 }
 
 .carousel-control-prev,
@@ -690,4 +703,192 @@ transition:transform 0.35s ease;
 
 .business-card:hover .placeholder{
 transform:scale(1.05);
+}
+
+/* MOBILE RESPONSIVE */
+
+.mobile-toggle {
+    display: none;
+    width: 100%;
+    background: transparent;
+    border: 2px solid #e0b15c;
+    color: #e0b15c;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.mobile-toggle:hover {
+    background: rgba(224,177,92,0.1);
+}
+
+.toggle-arrow {
+    display: inline-block;
+    transition: 0.35s ease;
+}
+
+.mobile-toggle[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-toggle[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 992px) {
+
+    .floating-navbar-inner {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+    }
+
+    .left-logo {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .navbar-collapse {
+        grid-column: 2;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right-logo {
+        grid-column: 3;
+        justify-self: end;
+    }
+
+    .navbar-nav {
+        width: auto !important;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    body {
+        font-size: 16px;
+        line-height: 1.8rem;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .floating-navbar-inner {
+        display: block;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+        transition: all 0.35s ease;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        gap: 10px !important;
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding:10px 0;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 60vh;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .section-blue,
+    .section-light {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #latest-news {
+        flex-direction: column;
+    }
+
+    .business-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .business-card {
+        width: 100%;
+        height: 300px;
+    }
+
+    .card-event img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .split-image {
+        min-height: 250px;
+    }
+
+    .floating-navbar-wrapper.shrink {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-size: 18px 18px;
+    }
+
+    .latest-news-item img {
+        height: 160px;
+    }
+
+    .news-card {
+        flex-direction: column;
+    }
+
+    .news-card img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .business-card {
+        height: 220px;
+    }
+
+    .card-overlay {
+        font-size: 20px;
+    }
 }
