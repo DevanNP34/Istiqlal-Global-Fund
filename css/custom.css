@@ -844,6 +844,18 @@ transform:scale(1.05);
     .floating-navbar-wrapper.shrink {
         padding: 0 10px;
     }
+
+    .footer .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer .col-md-3 {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
 }
 
 @media (max-width: 576px) {
