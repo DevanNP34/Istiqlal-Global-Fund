@@ -48,7 +48,7 @@ function renderKegiatan(data) {
 
                 <div class="event-card">
 
-                    <img src="${item.photos[0] || ''}">
+                    <img src="${(item.photos[0] || '').replace('img:', '').replace('vid:', '')}">
 
                     <div class="event-overlay">
 
@@ -142,6 +142,8 @@ function setupModal() {
 
 function updateImage() {
 
+    if (!galleryImages.length) return;
+
     const prev = document.querySelector(".gallery-prev");
     const next = document.querySelector(".gallery-next");
 
@@ -153,15 +155,32 @@ function updateImage() {
         next.style.display = "block";
     }
 
-    if (!galleryImages.length) return;
+    const file = galleryImages[currentIndex];
+    const container = document.querySelector(".modal-gallery");
+    const isVideo = file.startsWith("vid:");
+    const cleanFile = file.replace("vid:", "").replace("img:", "");
 
-    document.getElementById("modal-photo").src =
-        galleryImages[currentIndex];
+    if (isVideo) {
+
+    document.getElementById("modal-photo").outerHTML = `
+    <iframe 
+    id="modal-photo"
+    src="${cleanFile}"
+    allow="autoplay"
+    allowfullscreen>
+    </iframe>
+    `;
+
+    } else {
+
+    document.getElementById("modal-photo").outerHTML =
+    `<img id="modal-photo" src="${cleanFile}">`;
+
+    }
 
     document.getElementById("gallery-current").innerText =
         currentIndex + 1;
 
     document.getElementById("gallery-total").innerText =
         galleryImages.length;
-
 }
