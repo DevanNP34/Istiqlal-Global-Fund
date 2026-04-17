@@ -22,7 +22,7 @@ fetch(sheetURL)
                 .filter(p => p !== "")
 
         }))
-        .filter(k => k.type && k.event && k.desc);
+        .filter(k => k.type && k.event);
 
         renderKegiatan(kegiatanData);
 
