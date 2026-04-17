@@ -369,6 +369,14 @@ overflow: hidden;
 position: relative;
 }
 
+#modal-photo {
+transition: 0.25s ease;
+}
+
+#modal-photo:hover {
+transform: scale(1.02);
+}
+
 #modal-photo,
 video#modal-photo {
 width:100%;
@@ -491,6 +499,37 @@ font-size: 13px;
 font-weight: 500;
 
 z-index: 3;
+}
+
+#modal-photo {
+cursor: zoom-in;
+}
+
+.image-zoom {
+display: none;
+position: fixed;
+z-index: 10000;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.85);
+align-items: center;
+justify-content: center;
+cursor: zoom-out;
+}
+
+.image-zoom.show {
+display: flex;
+}
+
+#zoomedImage {
+max-width: 95%;
+max-height: 95%;
+object-fit: contain;
+border-radius: 8px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+animation: fadeIn 0.25s ease;
 }
 
 @keyframes fadeIn {

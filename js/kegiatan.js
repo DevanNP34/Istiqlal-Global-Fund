@@ -138,7 +138,28 @@ function setupModal() {
 
 }
 
+function setupZoom() {
 
+    const zoom = document.getElementById("imageZoom");
+    const zoomImg = document.getElementById("zoomedImage");
+    const modalPhoto = document.getElementById("modal-photo");
+
+    if (!modalPhoto || modalPhoto.tagName === "IFRAME") return;
+
+    modalPhoto.style.cursor = "zoom-in";
+
+    modalPhoto.onclick = () => {
+
+        zoomImg.src = modalPhoto.src;
+        zoom.classList.add("show");
+
+    };
+
+    zoom.onclick = () => {
+        zoom.classList.remove("show");
+    };
+
+}
 
 function updateImage() {
 
@@ -183,4 +204,6 @@ function updateImage() {
 
     document.getElementById("gallery-total").innerText =
         galleryImages.length;
+
+    setupZoom();
 }
