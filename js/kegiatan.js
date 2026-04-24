@@ -1,33 +1,42 @@
-const sheetURL = "https://docs.google.com/spreadsheets/d/1RNg5o1tHEuq9vSTYMXjt5PMJX1CQbf_cB3-ertatAsI/gviz/tq?tqx=out:json";
+const sheetURL = "https://script.google.com/macros/s/AKfycbyxxvCkbOvl31tb7nT4_hJWyFRfG7NynmZiPtQIjxkwiFKYgSl_GwG2RXkILY3Nlt3v/exec";
 
 const container = document.getElementById("events-container");
 const type = container.dataset.type;
 
+const loader = document.getElementById("events-loader");
+
 fetch(sheetURL)
-    .then(res => res.text())
-    .then(rep => {
+    .then(res => res.json())
+    .then(rows => {
 
-        const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
-        const rows = jsonData.table.rows;
+        const kegiatanData = rows.slice(1).map(r => ({
 
-        const kegiatanData = rows.map(r => ({
+            type: r[16] || "",
+            event: r[17] || "",
+            desc: r[18] || "",
 
-            type: r.c[16]?.v || "",
-            event: r.c[17]?.v || "",
-            desc: r.c[18]?.v || r.c[19]?.f || "",
-
-            photos: (r.c[19]?.v || r.c[20]?.f || "")
+            photos: (r[19] || "")
                 .split("\n")
                 .map(p => p.trim())
                 .filter(p => p !== "")
 
         }))
-        .filter(k => k.type && k.event);
 
+        loader.style.display = "none";
         renderKegiatan(kegiatanData);
 
-    });
+    })
+    .catch(err => {
 
+        loader.innerHTML = `
+            <p class="text-danger">
+                Gagal memuat kegiatan
+            </p>
+        `;
+
+        console.error(err);
+
+    });
 
 
 function renderKegiatan(data) {

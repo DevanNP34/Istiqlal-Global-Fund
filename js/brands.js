@@ -1,19 +1,20 @@
 async function loadBrands(){
 
-    const url = "https://docs.google.com/spreadsheets/d/1RNg5o1tHEuq9vSTYMXjt5PMJX1CQbf_cB3-ertatAsI/gviz/tq?tqx=out:json";
+    const loader = document.getElementById("brands-loader");
+
+    const url = "https://script.google.com/macros/s/AKfycbyxxvCkbOvl31tb7nT4_hJWyFRfG7NynmZiPtQIjxkwiFKYgSl_GwG2RXkILY3Nlt3v/exec";
 
     const res = await fetch(url);
-    const text = await res.text();
+    const rows = await res.json();
 
-    const json = JSON.parse(text.substring(47).slice(0,-2));
-    const rows = json.table.rows;
-
-    const brands = rows.map(r => ({
-        category: r.c[9]?.v || "",
-        name: r.c[10]?.v || "",
-        logo: r.c[11]?.v || ""
+    const brands = rows.slice(1).map(r => ({
+        category: r[9] || "",
+        name: r[10] || "",
+        logo: r[11] || ""
     }))
-    .filter(n => n.category && n.name);;
+    .filter(n => n.category && n.name);
+
+    loader.style.display = "none";
 
     renderBrands(brands);
 
