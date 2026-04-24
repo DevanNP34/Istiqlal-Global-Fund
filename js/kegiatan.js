@@ -87,11 +87,8 @@ function renderKegiatan(data) {
 }
 
 
-
 let galleryImages = [];
 let currentIndex = 0;
-
-
 
 function setupModal() {
 
@@ -101,13 +98,20 @@ function setupModal() {
 
         btn.addEventListener("click", () => {
 
+            if (isGridView) {
+                closeGridView();
+            }
+
             galleryImages = JSON.parse(btn.dataset.photos);
             currentIndex = 0;
 
             updateImage();
 
-            document.getElementById("modal-event").innerText = btn.dataset.event;
-            document.getElementById("modal-description").innerText = btn.dataset.desc;
+            document.getElementById("modal-event").innerText =
+                btn.dataset.event;
+
+            document.getElementById("modal-description").innerText =
+                btn.dataset.desc;
 
             modal.classList.add("show");
 
@@ -117,14 +121,25 @@ function setupModal() {
 
 
     document.querySelector(".event-close").addEventListener("click", () => {
+
+        if (isGridView) {
+            closeGridView();
+        }
+
         modal.classList.remove("show");
+
     });
 
 
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
-            modal.classList.remove("show");
+
+        if (isGridView) {
+            closeGridView();
         }
+
+        modal.classList.remove("show");
+}
     });
 
 
@@ -143,6 +158,20 @@ function setupModal() {
             currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             updateImage();
         });
+    }
+
+    const viewBtn = document.getElementById("view-all-btn");
+
+    if (viewBtn){
+        viewBtn.onclick = () => {
+
+            if (!isGridView){
+                openGridView();
+            } else {
+                closeGridView();
+            }
+
+        };
     }
 
 }
@@ -215,4 +244,76 @@ function updateImage() {
         galleryImages.length;
 
     setupZoom();
+}
+
+
+
+let isGridView = false;
+
+function openGridView(){
+
+    const grid = document.getElementById("gallery-grid");
+    const modalContent = document.querySelector(".event-modal-content");
+
+    grid.innerHTML = "";
+    grid.classList.add("active");
+
+    modalContent.classList.add("expanded");
+
+    document.getElementById("modal-photo").style.display = "none";
+    document.querySelector(".gallery-prev").style.display = "none";
+    document.querySelector(".gallery-next").style.display = "none";
+    document.querySelector(".gallery-counter").style.display = "none";
+    document.getElementById("modal-event").style.display = "none";
+    document.getElementById("modal-description").style.display = "none";
+
+    galleryImages.forEach((file, index) => {
+
+        const isVideo = file.startsWith("vid:");
+        const clean = file.replace("vid:", "").replace("img:", "");
+
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+
+        item.innerHTML = isVideo
+            ? `<iframe src="${clean}"></iframe>`
+            : `<img src="${clean}">`;
+
+        item.innerHTML += `<div class="gallery-index">${index + 1}</div>`;
+
+        item.onclick = () => {
+
+            currentIndex = index;
+            closeGridView();
+            updateImage();
+
+        };
+
+        grid.appendChild(item);
+
+    });
+
+    isGridView = true;
+
+}
+
+function closeGridView(){
+
+    const grid = document.getElementById("gallery-grid");
+    const modalContent = document.querySelector(".event-modal-content");
+
+    grid.classList.remove("active");
+    grid.innerHTML = "";
+
+    modalContent.classList.remove("expanded");
+
+    document.getElementById("modal-photo").style.display = "";
+    document.querySelector(".gallery-prev").style.display = "";
+    document.querySelector(".gallery-next").style.display = "";
+    document.querySelector(".gallery-counter").style.display = "";
+    document.getElementById("modal-event").style.display = "block";
+    document.getElementById("modal-description").style.display = "block";
+
+    isGridView = false;
+
 }
